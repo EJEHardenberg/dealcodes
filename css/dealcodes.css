@@ -1,0 +1,12 @@
+.bc{
+	background-color: #eeeeee;
+	border: medium solid #ffeeee;
+	border-radius: 1em;
+	font-weight: bolder;
+	text-align: center;
+}
+.test{
+	background-color: #010101;
+	color: #ffffff;
+	border: thick solid #ffeeff;
+}
