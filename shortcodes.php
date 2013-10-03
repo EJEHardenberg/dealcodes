@@ -21,7 +21,7 @@ function signOffText() {
 add_shortcode('signoff', 'signOffText');  
 
 function wrap($atts, $content = null){
-	return '<div class="bc">'.$content.'</div>';
+	return '<div class="dc-parent">'.$content.'</div>';
 }
 add_shortcode('wrap', 'wrap');
 
@@ -29,8 +29,24 @@ function wrapclass($atts, $content = null){
 	extract(shortcode_atts(array(  
 		"class" => ''  
     ), $atts));  
-	return "<div class=\"bc $class\">".$content.'</div>';
+	return "<div class=\"dc-parent $class\">".$content.'</div>';
 }
 add_shortcode('wrapclass','wrapclass');
+
+function dealblock($atts, $content = null){
+	extract(shortcode_atts(array(  
+		"class" => 'dc-parent' , /* Default to dc-parent styles*/
+		"title" => "Today's Deal!",
+		"price" => "0.00", 
+		"image" => plugin_dir_url(__FILE__) . 'images/default.png'
+    ), $atts));  
+    return  "<div class=\"$class\">" .
+    		"<h3>$title</h3>".
+    		"<span class=\"$class\">$price</span>".
+    		"<img src=\"$image\" />".
+    		"<div>$content</div>".
+    		"</div>";
+}
+add_shortcode('dealblock','dealblock');
 
 ?>
